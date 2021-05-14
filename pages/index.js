@@ -1,13 +1,13 @@
 import MovieAPIkey from '../secrets.js';
 
 import { server } from '../config';
-import ArticleList from '../components/ArticleList';
+import MovieList from '../components/MovieList';
 
 export default function Home({ movies }) {
   console.log(movies);
   return (
     <div>
-      <ArticleList movies={movies} />
+      <MovieList movies={movies} />
     </div>
   );
 }

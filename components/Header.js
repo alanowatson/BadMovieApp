@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div>
       <h1 className={headerStyles.title}>
-        <span>Webdev</span> News
+        What <span>NOT</span> To Watch
       </h1>
       <p className={headerStyles.description}>this is a subtitle</p>
     </div>

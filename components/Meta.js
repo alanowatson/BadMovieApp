@@ -14,9 +14,9 @@ const Meta = ({ title, keywords, description }) => {
 };
 
 Meta.defaultProps = {
-  title: 'Next.js',
-  keywords: 'Web Development, Programming',
-  description: 'This site uses Next.js for better programming',
+  title: 'Bad Movies',
+  keywords: 'Movies, Worst movie',
+  description: 'This discusses some bad movies',
 };
 
 export default Meta;
