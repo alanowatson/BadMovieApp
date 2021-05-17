@@ -1,4 +1,4 @@
-import MovieAPIkey from '../secrets.js';
+import { MovieAPIkey } from '../secrets.js';
 
 import { server } from '../config';
 import MovieList from '../components/MovieList';
@@ -14,12 +14,15 @@ export default function Home({ movies }) {
 
 export const getStaticProps = async () => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=baa04c13778d34c2b0aacb32ef7fed1c&query=Jack+Reacher`
+    `https://api.themoviedb.org/3/trending/all/week?api_key=${MovieAPIkey}`
   );
   // `https://api.themoviedb.org/3/search/movie?api_key=${MovieAPIkey}&query=Jack+Reacher`
   // or using server `${server}/api/articles`
   const movieObj = await res.json();
-  const movies = movieObj.results;
+  const movies = movieObj.results.filter((movie) => {
+    if (movie.vote_average < 7.0) return true;
+  });
+  console.log(movies);
 
   return {
     props: {
