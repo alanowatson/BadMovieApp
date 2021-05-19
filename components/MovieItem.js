@@ -5,12 +5,12 @@ import movieStyles from '../styles/Movie.module.css';
 
 const MovieItem = ({ movie }) => {
   return (
-    <Link href='/article/[id]' as={`/article/${movie.id}`}>
+    <Link href='/movie/[id]' as={`/movie/${movie.id}`}>
       <a className={movieStyles.card}>
-        <h3>{movie.title} &rarr;</h3>
-        <p>{movie.vote_average}</p>
+        <h3>{movie.title}</h3>
+        <p>Average user rating: {movie.vote_average}</p>
         <img
-          className='card-poster'
+          className={movieStyles.poster}
           src={`${imageUrlStart}${movie.poster_path}`}
         />
       </a>
