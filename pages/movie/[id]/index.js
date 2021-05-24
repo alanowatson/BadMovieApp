@@ -1,15 +1,29 @@
 import Link from 'next/link';
 import { MovieAPIkey, imageUrlStart } from '../../../secrets';
+import movieStyles from '../../../styles/Movie.module.css';
 
 const movie = ({ movie }) => {
   // const router = useRouter();
   // const { id } = router.query;
   return (
     <>
-      <h1>{movie.title}</h1>
-      <p>{movie.overview}</p>
-      <br />
-      <img src={`${imageUrlStart}${movie.images.backdrops[0].file_path}`} />
+      <div className={movieStyles.grid}>
+        <h2>{movie.title}</h2>
+        <p>{movie.overview}</p>
+        <p>
+          Genre:{' '}
+          {movie.genres.map((genre) => {
+            return <span>{genre.name} </span>;
+          })}
+        </p>
+      </div>
+      <img
+        className={movieStyles.posterBig}
+        src={`${imageUrlStart}${movie.images.backdrops[0].file_path}`}
+      />
+
+      <hr />
+
       <Link href='/'>Go Back</Link>
     </>
   );
@@ -20,6 +34,7 @@ export const getStaticProps = async (context) => {
     `https://api.themoviedb.org/3/movie/${context.params.id}?api_key=${MovieAPIkey}&append_to_response=images`
   );
   const movie = await res.json();
+  console.log('single Movie', movie);
 
   return {
     props: {
