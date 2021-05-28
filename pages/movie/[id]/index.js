@@ -12,8 +12,8 @@ const movie = ({ movie }) => {
         <p>{movie.overview}</p>
         <p>
           Genre:{' '}
-          {movie.genres.map((genre) => {
-            return <span>{genre.name} </span>;
+          {movie.genres.map((genre, idx) => {
+            return <span key={`${genre.name}${idx}`}>{genre.name} </span>;
           })}
         </p>
       </div>
