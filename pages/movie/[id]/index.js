@@ -23,6 +23,19 @@ const movie = ({ movie }) => {
       />
 
       <hr />
+      <h3>Cast</h3>
+      <div className={movieStyles.grid}>
+        {movie.credits.cast.map((person, index) => {
+          return (
+            <a className={movieStyles.card}>
+              <h3>{person.name}</h3>
+              <img
+                className={movieStyles.poster}
+                src={`${imageUrlStart}${person.profile_path}`} />
+            </a>
+          )
+        })}
+      </div>
 
       <Link href='/'>Go Back</Link>
     </>
@@ -31,7 +44,7 @@ const movie = ({ movie }) => {
 
 export const getStaticProps = async (context) => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${context.params.id}?api_key=${MovieAPIkey}&append_to_response=images`
+    `https://api.themoviedb.org/3/movie/${context.params.id}?api_key=${MovieAPIkey}&append_to_response=images,credits`
   );
   const movie = await res.json();
   console.log('single Movie', movie);

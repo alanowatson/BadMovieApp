@@ -36,7 +36,7 @@
   color: inherit;
 
   transition: color 0.15s ease, border-color 0.15s ease;
-  width: 40vw;
+  width: 60vw;
 }
 
 .card:hover,

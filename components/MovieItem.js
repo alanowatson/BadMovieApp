@@ -7,7 +7,7 @@ const MovieItem = ({ movie }) => {
   return (
     <Link href='/movie/[id]' as={`/movie/${movie.id}`}>
       <a className={movieStyles.card}>
-        <p>({movie.media_type})</p>
+        <h3>{movie.original_title}</h3>
         <p>Average user rating: {movie.vote_average}</p>
 
         <img
