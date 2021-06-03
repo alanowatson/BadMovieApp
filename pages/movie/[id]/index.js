@@ -5,6 +5,9 @@ import movieStyles from '../../../styles/Movie.module.css';
 const movie = ({ movie }) => {
   // const router = useRouter();
   // const { id } = router.query;
+  let topBilledCast = movie.credits.cast.filter((person, idx) => {
+    if (idx <= 9) return true
+  })
   return (
     <>
       <div className={movieStyles.grid}>
@@ -25,13 +28,13 @@ const movie = ({ movie }) => {
       <hr />
       <h3>Cast</h3>
       <div className={movieStyles.grid}>
-        {movie.credits.cast.map((person, index) => {
+        {topBilledCast.map((person, index) => {
           return (
             <a className={movieStyles.card}>
               <h3>{person.name}</h3>
               <img
                 className={movieStyles.poster}
-                src={`${imageUrlStart}${person.profile_path}`} />
+                src={person.profile_path ? `${imageUrlStart}${person.profile_path}` : 'https://catalog.osaarchivum.org/assets/thumbnail_placeholder_movie-480596e192e7043677f77cf78b13bdd1.jpg'} />
             </a>
           )
         })}
