@@ -7,3 +7,5 @@ In a world where everyone tells you what to watch, this helps you explore what t
 Coming soon, features on Cast and Producers so we can see some interesting trends!
 
 Tech stack: Messing around with Next.js :)
+
+https://what-not-to-watch.vercel.app/
